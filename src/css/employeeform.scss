@@ -1,0 +1,21 @@
+.employeeform{
+    border: solid lightblue 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+}
+
+.address{
+    border: solid grey dashed;
+    display: flex;
+    flex-direction: column;
+}
