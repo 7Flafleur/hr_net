@@ -1,12 +1,56 @@
-
-import { Form, Field } from 'react-final-form';
 import {States} from "../utils/States";
+import { useSelector,useDispatch } from "react-redux";
+import { setError, clearError, clearAllErrors } from '../redux/ErrorMsgSlice';
+import { addUser } from '../redux/UserListSlice';
+import { updateField, resetForm } from '../redux/FormSlice';
 
- const  EmployeeForm = () =>(
 
-        <div className="employeeform">
+
+ export default function  EmployeeForm () {
+
+    const dispatch = useDispatch();
+    const formData = useSelector(state => state.form.formData);
+    const errors = useSelector(state => state.errors.errors);
+
+    const validate = () => {
+        let isValid = true;
+        if (!formData.name) {
+          dispatch(setError({ field: 'name', message: 'Name is required' }));
+          isValid = false;
+        } else {
+          dispatch(clearError({ field: 'name' }));
+        }
+    
+        if (!formData.email) {
+          dispatch(setError({ field: 'email', message: 'Email is required' }));
+          isValid = false;
+        } else {
+          dispatch(clearError({ field: 'email' }));
+        }
+    
+        return isValid;
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validate()) {
+          dispatch(addUser(formData));
+          dispatch(clearAllErrors());
+          dispatch(resetForm());
+        }
+      };
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        dispatch(updateField({ field: name, value }));
+      };
+
+
+
+
+       return (<div className="employeeform">
             <p>Form</p>
-            <form className='outer form'>
+            <form className='outer form' onSubmit={handleSubmit}>
                 <label>First name: 
                     <input type="text" />
                 </label>
@@ -53,8 +97,8 @@ import {States} from "../utils/States";
                     </select>
                 </label>
             </form>
-        </div>
-    )
+        </div>)
+            }
 
 //     <Form
 //     onSubmit={onSubmit}
@@ -103,4 +147,3 @@ import {States} from "../utils/States";
 // )
 
 
-export default EmployeeForm;

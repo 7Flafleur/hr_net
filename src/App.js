@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-
-import store from './redux/Strore';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import store from './redux/Store';
 import {AppRoutes} from './routes/AppRoutes';
 
 function App() {

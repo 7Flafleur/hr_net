@@ -1,27 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const errorMsgSlice = createSlice(
-    {
-        name: "errorMsg",
-        initialState: {
-            errorMessage:"",
-        },
-        reducers: {
-            setErrorMsg: (state,action) =>{
-                if (action.payload){
-                    state.errorMessage = action.payload;
-                }
-                else {
-                    console.error("No action payload")
-                }
-            },
+const initialState = {
+  errors: {}
+};
 
-            deleteErrorMsg: (state) =>{
-                state.errorMessage="";
-            }
-        }
+const errorMsgSlice = createSlice({
+  name: 'errors',
+  initialState,
+  reducers: {
+    setError: (state, action) => {
+      const { field, message } = action.payload;
+      state.errors[field] = message;
+    },
+    clearError: (state, action) => {
+      const { field } = action.payload;
+      delete state.errors[field];
+    },
+    clearAllErrors: (state) => {
+      state.errors = {};
     }
-);
+  }
+});
 
-export const {setErrorMsg, deleteErrorMsg} = errorMsgSlice.actions;
-export default errorMsgSlice;
+export const { setError, clearError, clearAllErrors } = errorMsgSlice.actions;
+export default errorMsgSlice.reducer;

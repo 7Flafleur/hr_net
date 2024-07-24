@@ -2,25 +2,23 @@ import { createSlice } from '@reduxjs/toolkit';
 
 
 const userListSlice = createSlice({
-  name:"user",
-  initialState:[],
-  reducers:{
-    addUser: (state,action) => {
-      if(action.payload){
-        state.user=action.payload
+  name: "users",
+  initialState: [],
+  reducers: {
+    addUser: (state, action) => {
+      if (action.payload) {
+        state.users.push(action.payload);
       }
-      else{
+      else {
         console.error("Invalid data")
       }
     },
-    removeUser: (state,action) => {
+    removeUser: (state, action) => {
       return state.filter((user) => user.id !== action.payload)
     }
-    
 
-    
   }
 })
 
-export const {addUser, removeUser} = userListSlice.actions;
+export const { addUser, removeUser } = userListSlice.actions;
 export default userListSlice;
