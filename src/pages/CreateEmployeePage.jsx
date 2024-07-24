@@ -4,7 +4,7 @@ import EmployeeForm from "../components/EmployeeForm";
 
 export default function CreateEmployeePage() {
 
-    const onClickSave =() =>{}
+
 
     return (
         <div className="CEbody">
@@ -12,7 +12,7 @@ export default function CreateEmployeePage() {
             <Link to="/employee-list">View Current Employees </Link>
             <h2> Create  Employee</h2>
             <EmployeeForm />
-            <button onClick={onClickSave}>Save</button>
+            
         </div>
     )
 

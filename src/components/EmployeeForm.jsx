@@ -1,41 +1,40 @@
 import {States} from "../utils/States";
 import { useSelector,useDispatch } from "react-redux";
-import { setError, clearError, clearAllErrors } from '../redux/ErrorMsgSlice';
+
 import { addUser } from '../redux/UserListSlice';
 import { updateField, resetForm } from '../redux/FormSlice';
+import { useState } from "react";
 
 
 
  export default function  EmployeeForm () {
 
+    const [formData ,setFormdata] = useState({
+      "firstName":'',
+      "lastName":"",
+      "dob":'',
+      "startDate":'',
+      "street":'',
+      "city":'',
+      "state":'',
+      "zipCode":'',
+      "department":''
+        
+    })
+
+    const [errors, setErrors] = useState({});
+
     const dispatch = useDispatch();
-    const formData = useSelector(state => state.form.formData);
-    const errors = useSelector(state => state.errors.errors);
+
 
     const validate = () => {
-        let isValid = true;
-        if (!formData.name) {
-          dispatch(setError({ field: 'name', message: 'Name is required' }));
-          isValid = false;
-        } else {
-          dispatch(clearError({ field: 'name' }));
-        }
-    
-        if (!formData.email) {
-          dispatch(setError({ field: 'email', message: 'Email is required' }));
-          isValid = false;
-        } else {
-          dispatch(clearError({ field: 'email' }));
-        }
-    
-        return isValid;
+ 
       };
     
       const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
           dispatch(addUser(formData));
-          dispatch(clearAllErrors());
           dispatch(resetForm());
         }
       };
@@ -44,9 +43,6 @@ import { updateField, resetForm } from '../redux/FormSlice';
         const { name, value } = e.target;
         dispatch(updateField({ field: name, value }));
       };
-
-
-
 
        return (<div className="employeeform">
             <p>Form</p>
@@ -91,59 +87,16 @@ import { updateField, resetForm } from '../redux/FormSlice';
                         <option value="dept1">Sales</option>
                         <option value="dept2">Marketing</option>
                         <option>Engineering</option>
-                        <option>Human REsources</option>
+                        <option>Human Resources</option>
                         <option>Legal</option>
 
                     </select>
                 </label>
+                <button className="save" type="submit">Save</button>
             </form>
         </div>)
             }
 
-//     <Form
-//     onSubmit={onSubmit}
-//     validate={validate}
-//     render={({ handleSubmit }) => (
-//       <form onSubmit={handleSubmit}>
-//         <h2>Simple Default Input</h2>
-//         <div>
-//           <label>First Name</label>
-//           <Field name="firstName" component="input" placeholder="First Name" />
-//         </div>
 
-//         <h2>An Arbitrary Reusable Input Component</h2>
-//         <div>
-//           <label>Interests</label>
-//           <Field name="interests" component={InterestPicker} />
-//         </div>
-
-//         <h2>Render Function</h2>
-//         <Field
-//           name="bio"
-//           render={({ input, meta }) => (
-//             <div>
-//               <label>Bio</label>
-//               <textarea {...input} />
-//               {meta.touched && meta.error && <span>{meta.error}</span>}
-//             </div>
-//           )}
-//         />
-
-//         <h2>Render Function as Children</h2>
-//         <Field name="phone">
-//           {({ input, meta }) => (
-//             <div>
-//               <label>Phone</label>
-//               <input type="text" {...input} placeholder="Phone" />
-//               {meta.touched && meta.error && <span>{meta.error}</span>}
-//             </div>
-//           )}
-//         </Field>
-
-//         <button type="submit">Submit</button>
-//       </form>
-//     )}
-//   />
-// )
 
 

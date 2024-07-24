@@ -1,5 +1,5 @@
 .employeeform{
-    border: solid lightblue 1px;
+    // border: solid lightblue 1px;
     display: flex;
     flex-direction: column;
 }
@@ -18,4 +18,8 @@ label{
     border: solid grey dashed;
     display: flex;
     flex-direction: column;
+}
+
+.save{
+    margin-top: 2rem;
 }

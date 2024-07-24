@@ -4,10 +4,8 @@ import userListReducer from './UserListSlice';
 import errorMsgReducer from './ErrorMsgSlice';
 
 const store = configureStore({
-  reducer: {
-    form: formReducer,
-    userList: userListReducer,
-    errors: errorMsgReducer
+  reducer: {  
+    userList: userListReducer, 
   }
 });
 
