@@ -13,7 +13,7 @@ const isValidDob = (dateStr) => {
 const isValidStartDate = (dateStr) => {
   const date = new Date(dateStr);
   const today = new Date();
-  return date >= today;
+  return date <= today;
 };
 
 const isValidStreet = (str) => {

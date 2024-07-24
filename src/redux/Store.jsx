@@ -1,11 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import formReducer from './FormSlice';
+import { configureStore} from '@reduxjs/toolkit';
 import userListReducer from './UserListSlice';
-import errorMsgReducer from './ErrorMsgSlice';
+
 
 const store = configureStore({
   reducer: {  
-    userList: userListReducer, 
+    userList: userListReducer
   }
 });
 

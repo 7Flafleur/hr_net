@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+  users:[]
+}
+
 
 const userListSlice = createSlice({
-  name: "users",
-  initialState: [],
+  name: "userList",
+  initialState,
   reducers: {
     addUser: (state, action) => {
       if (action.payload) {
@@ -21,4 +25,4 @@ const userListSlice = createSlice({
 })
 
 export const { addUser, removeUser } = userListSlice.actions;
-export default userListSlice;
+export default userListSlice.reducer;

@@ -46,7 +46,7 @@ export default function EmployeeForm() {
         }
 
         if (!isValidStartDate(formData.startDate)) {
-            tempErrors.startDate = 'Start Date cannot be in the past';
+            tempErrors.startDate = 'Start Date cannot be in the future';
             isValid = false;
         }
 
@@ -85,16 +85,14 @@ export default function EmployeeForm() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-      
         if (validate()) {
           dispatch(addUser(formData));
-          handleReset();
+          
         }
       };
     
       const handleReset = (e) => {
         e.preventDefault();
-       
         setFormData(emptyFormState); 
         setErrors({}); 
         

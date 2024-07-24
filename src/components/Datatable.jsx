@@ -15,6 +15,12 @@ import {
 
 export default function Datatable() {
 
+    const userList = useSelector(state => state.userList)
+
+    console.log("datatable userlist",userList)
+
+
+
     const [rowData, setRowdata] = useState([
         { firstname: 'Employee', lastname: '1', startdate: '01/01/0002', department: 'beginning', dob: '01/01/0001', street: 'street', city: 'sity', state: 'A', zipcode: '01' }
     ])
