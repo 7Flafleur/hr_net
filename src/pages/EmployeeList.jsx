@@ -7,7 +7,7 @@ export default function EmplyoeeList() {
 
     const userList= useSelector(state => state.userList)
 
-    console.log("userlist", userList)
+    console.log("type of userlist", typeof(userList))
 
     return (
         <div className="ELbody">

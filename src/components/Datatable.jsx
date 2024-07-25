@@ -15,9 +15,9 @@ import {
 
 export default function Datatable() {
 
-    const userList = useSelector(state => state.userList)
+    const users = useSelector(state => state.userList.users)
 
-    console.log("datatable userlist",userList)
+    console.log("datatable userlist",users)
 
 
 
