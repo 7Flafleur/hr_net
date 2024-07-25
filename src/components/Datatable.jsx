@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { mockUsers } from '../utils/MockUsers';
 import { Link } from "react-router-dom";
 
+
 import {
     useCallback,
     useMemo,
@@ -23,29 +24,35 @@ export default function Datatable() {
 
     console.log("Mock users ",mockUsers)
 
+    let employeeList;
+
+    let usingMock=false;
+
+    if(users.length!==0)
+    {
+        employeeList=users
+    }
+    else{
+        employeeList=mockUsers
+        usingMock=true
+    }
 
 
+const rowData = employeeList;
 
+ 
 
-    const [rowData, setRowdata] = useState(
-    //     [
-    //     { firstname: 'TestEmployee', lastname: '1', startdate: '01/01/2020', department: 'Human Resources', dob: '31/01/2000', street: 'Bstreet', city: 'Asity', state: 'B', zipcode: '02' },
-    //     { firstname: 'TestEmployee', lastname: '2', startdate: '31/12/2020', department: 'Sales', dob: '01/01/2000', street: 'Astreet', city: 'Bsity', state: 'A', zipcode: '01' }
-    // ]
-    mockUsers
-)
-
-    const [colDef, setcoldef] = useState([
-        { field: "firstname", width: 110 },                      //can be customized with headerName and valueGetter function
-        { field: "lastname", width: 100 },
-        { field: "startdate", width: 110 },                     //valueFormatter: p => p.value.toLocaleString ?
-        { field: "department", width: 120 },
-        { field: "dob", width: 110 },                       //valueFormatter: p => p.value.toLocaleString ?
-        { field: "street", width: 120 },
-        { field: "city", width: 110 },
-        { field: "state", width: 110 },
-        { field: "zipcode", width: 100 }                //valueFormatter: p => p.value.toLocaleString ?
-    ])
+    const colDef=[
+        { field: "firstName", width: 150 },                      //can be customized with headerName and valueGetter function
+        { field: "lastName", width: 150 },
+        { field: "startDate", width: 130 },                     //valueFormatter: p => p.value.toLocaleString ?
+        { field: "department", width: 150 },
+        { field: "dob", width: 130 },                       //valueFormatter: p => p.value.toLocaleString ?
+        { field: "street", width: 150 },
+        { field: "city", width: 130 },
+        { field: "state", width: 130 },
+        { field: "zipCode", width: 110 }                //valueFormatter: p => p.value.toLocaleString ?
+    ]
 
 
         
@@ -63,9 +70,12 @@ export default function Datatable() {
                         <option value="50">50</option>
                         <option value="100">100</option>
                     </select>entries</p>
+                    {usingMock && <span>Using mock data!</span>}
                 <p>Search <input type='text'></input> </p>
             </div>
-            <div className='datatable ag-theme-quartz' style={{ height: 500}} >
+            <div className='datatable ag-
+            
+            theme-quartz' style={{ height: 500,width: '100%'}} >
                 <AgGridReact rowData={rowData} columnDefs={colDef} />
                 
             </div><Link className="homelink" to="/">Home</Link>
