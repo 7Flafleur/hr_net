@@ -22,19 +22,20 @@ export default function Datatable() {
 
 
     const [rowData, setRowdata] = useState([
-        { firstname: 'Employee', lastname: '1', startdate: '01/01/0002', department: 'beginning', dob: '01/01/0001', street: 'street', city: 'sity', state: 'A', zipcode: '01' }
+        { firstname: 'TestEmployee', lastname: '1', startdate: '01/01/2020', department: 'Human Resources', dob: '31/01/2000', street: 'Bstreet', city: 'Asity', state: 'B', zipcode: '02' },
+        { firstname: 'TestEmployee', lastname: '2', startdate: '31/12/2020', department: 'Sales', dob: '01/01/2000', street: 'Astreet', city: 'Bsity', state: 'A', zipcode: '01' }
     ])
 
     const [colDef, setcoldef] = useState([
         { field: "firstname", width: 110 },                      //can be customized with headerName and valueGetter function
         { field: "lastname", width: 100 },
-        { field: "startdate", width: 110 },
+        { field: "startdate", width: 110 },                     //valueFormatter: p => p.value.toLocaleString ?
         { field: "department", width: 120 },
-        { field: "dob", width: 110 },
+        { field: "dob", width: 110 },                       //valueFormatter: p => p.value.toLocaleString ?
         { field: "street", width: 120 },
         { field: "city", width: 110 },
         { field: "state", width: 110 },
-        { field: "zipcode", width: 100 }
+        { field: "zipcode", width: 100 }                //valueFormatter: p => p.value.toLocaleString ?
     ])
 
 
