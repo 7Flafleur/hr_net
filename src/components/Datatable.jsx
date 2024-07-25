@@ -2,6 +2,8 @@ import { AgGridReact } from 'ag-grid-react';
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
 import { useSelector } from 'react-redux';
+import { mockUsers } from '../utils/MockUsers';
+import { Link } from "react-router-dom";
 
 import {
     useCallback,
@@ -19,12 +21,19 @@ export default function Datatable() {
 
     console.log("datatable userlist",users)
 
+    console.log("Mock users ",mockUsers)
 
 
-    const [rowData, setRowdata] = useState([
-        { firstname: 'TestEmployee', lastname: '1', startdate: '01/01/2020', department: 'Human Resources', dob: '31/01/2000', street: 'Bstreet', city: 'Asity', state: 'B', zipcode: '02' },
-        { firstname: 'TestEmployee', lastname: '2', startdate: '31/12/2020', department: 'Sales', dob: '01/01/2000', street: 'Astreet', city: 'Bsity', state: 'A', zipcode: '01' }
-    ])
+
+
+
+    const [rowData, setRowdata] = useState(
+    //     [
+    //     { firstname: 'TestEmployee', lastname: '1', startdate: '01/01/2020', department: 'Human Resources', dob: '31/01/2000', street: 'Bstreet', city: 'Asity', state: 'B', zipcode: '02' },
+    //     { firstname: 'TestEmployee', lastname: '2', startdate: '31/12/2020', department: 'Sales', dob: '01/01/2000', street: 'Astreet', city: 'Bsity', state: 'A', zipcode: '01' }
+    // ]
+    mockUsers
+)
 
     const [colDef, setcoldef] = useState([
         { field: "firstname", width: 110 },                      //can be customized with headerName and valueGetter function
@@ -37,6 +46,10 @@ export default function Datatable() {
         { field: "state", width: 110 },
         { field: "zipcode", width: 100 }                //valueFormatter: p => p.value.toLocaleString ?
     ])
+
+
+        
+   
 
 
 
@@ -54,7 +67,8 @@ export default function Datatable() {
             </div>
             <div className='datatable ag-theme-quartz' style={{ height: 500}} >
                 <AgGridReact rowData={rowData} columnDefs={colDef} />
-            </div>
+                
+            </div><Link className="homelink" to="/">Home</Link>
         </div>
     )
 }
