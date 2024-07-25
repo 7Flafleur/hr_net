@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateEmployeePage from '../pages/CreateEmployeePage';
-import EmplyoeeList from '../pages/EmployeeList';
+import EmployeeList1 from '../pages/EmployeeList';
+import EmployeeList2 from '../pages/EmployeeList2';
 
 
 export const AppRoutes = () => {
@@ -8,7 +9,8 @@ export const AppRoutes = () => {
         <Router>
             <Routes>         
                 <Route path="/" element={<CreateEmployeePage />} />
-                <Route path="/employee-list" element={<EmplyoeeList />} />
+                <Route path="/employee-list1" element={<EmployeeList1 />} />
+                <Route path="/employee-list2" element={<EmployeeList2 />} />
             </Routes>
         </Router>
     );
