@@ -6,16 +6,6 @@ import { mockUsers } from '../utils/MockUsers';
 import { Link } from "react-router-dom";
 
 
-import {
-    useCallback,
-    useMemo,
-    useRef,
-    useState,
-    StrictMode,
-} from 'react';
-
-
-
 export default function Datatable() {
 
     const users = useSelector(state => state.userList.users)
@@ -55,10 +45,6 @@ const rowData = employeeList;
     ]
 
 
-        
-   
-
-
 
     return (
         <div className="DTbody">
@@ -73,9 +59,7 @@ const rowData = employeeList;
                     {usingMock && <span>Using mock data!</span>}
                 <p>Search <input type='text'></input> </p>
             </div>
-            <div className='datatable ag-
-            
-            theme-quartz' style={{ height: 500,width: '100%'}} >
+            <div className='datatable ag-theme-quartz' style={{ height: 500,width: '100%'}} >
                 <AgGridReact rowData={rowData} columnDefs={colDef} />
                 
             </div><Link className="homelink" to="/">Home</Link>

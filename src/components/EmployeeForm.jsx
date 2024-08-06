@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { States } from "../utils/States";
 import { addUser } from '../redux/UserListSlice';
 import { validName, isValidDob, isValidStartDate, isValidStreet, isUsZipCode } from '../utils/InputValidation';
+import Modal from './Modal';
 
 export default function EmployeeForm() {
 
@@ -18,11 +19,16 @@ export default function EmployeeForm() {
         department: ''
     }
 
+    const textContent = "Employee created!"
+
     const [formData, setFormData] = useState(emptyFormState);
 
     const [errors, setErrors] = useState({});
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     const dispatch = useDispatch();
 
@@ -86,21 +92,22 @@ export default function EmployeeForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-          dispatch(addUser(formData));
-          
+            dispatch(addUser(formData));
+            openModal()
+
         }
-      };
-    
-      const handleReset = (e) => {
+    };
+
+    const handleReset = (e) => {
         e.preventDefault();
-        setFormData(emptyFormState); 
-        setErrors({}); 
-        
-      };
-    
+        setFormData(emptyFormState);
+        setErrors({});
+
+    };
+
     return (
         <div className="employeeform">
-            <p>Form</p>
+            {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} textContent={textContent} />}
             <form className='outer form' onSubmit={handleSubmit}>
                 <label>First name:
                     <input
@@ -207,7 +214,8 @@ export default function EmployeeForm() {
                     </select>
                     {errors.department && <div className="invalid-feedback">{errors.department}</div>}
                 </label>
-                <button className="save" type="submit">Save</button><button variant="secondary" className="clear" onClick={handleReset}>Clear</button>
+                <button className="save" type="submit">Save</button>
+                <button variant="secondary" className="clear" onClick={handleReset}>Clear</button>
             </form>
         </div>
     );

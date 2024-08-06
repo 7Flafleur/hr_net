@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateEmployeePage from '../pages/CreateEmployeePage';
-import EmployeeList1 from '../pages/EmployeeList';
+import EmployeeList1 from '../pages/EmployeeList1';
+import Modal from '../components/Modal';
 // import EmployeeList2 from '../pages/EmployeeList2';
 
 
@@ -10,6 +11,7 @@ export const AppRoutes = () => {
             <Routes>         
                 <Route path="/" element={<CreateEmployeePage />} />
                 <Route path="/employee-list1" element={<EmployeeList1 />} />
+                
                 {/* <Route path="/employee-list2" element={<EmployeeList2 />} /> */}
             </Routes>
         </Router>
