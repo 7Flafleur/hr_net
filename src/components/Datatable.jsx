@@ -17,15 +17,15 @@ export default function Datatable() {
     const usingMock = users.length === 0;
 
     const colDef = [
-        { field: "firstName", width: 150 },
-        { field: "lastName", width: 150 },
+        { field: "firstName", width: 190 },
+        { field: "lastName", width: 200 },
         { field: "startDate", width: 130 },
-        { field: "department", width: 150 },
+        { field: "department", width: 170 },
         { field: "dob", width: 130 },
-        { field: "street", width: 150 },
-        { field: "city", width: 130 },
-        { field: "state", width: 130 },
-        { field: "zipCode", width: 110 }
+        { field: "street", width: 180 },
+        { field: "city", width: 167 },
+        { field: "state", width: 150 },
+        { field: "zipCode", width: 130 }
     ];
 
     const searchList = (e) => {
