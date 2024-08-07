@@ -25,7 +25,8 @@ code {
 }
 
 .CEbody,.ELbody{
-  border: solid green 2px ;
+  // border: solid green 2px ;
+  background-color: aquamarine;
   display: flex;
   flex-direction: column;
   align-items: center;
