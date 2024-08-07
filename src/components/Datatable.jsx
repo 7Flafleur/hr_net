@@ -4,17 +4,24 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import { useSelector } from 'react-redux';
 import { mockUsers } from '../utils/MockUsers';
 import { Link } from "react-router-dom";
-import { useState, useMemo } from 'react';
+import { useState,useEffect } from 'react';
 
 export default function Datatable() {
-    const [filteredList, setFilteredList] = useState([]);
+  
     const users = useSelector(state => state.userList.users);
 
     console.log("datatable userlist", users);
     console.log("Mock users ", mockUsers);
 
-    const employeeList = users.length !== 0 ? users : mockUsers;
+    const employeeList = users.length !== 0 ? users : mockUsers;    //useeffect  pour initialiser données
+
     const usingMock = users.length === 0;
+
+  const [filteredList, setFilteredList] = useState([]);
+
+  console.log("default filtered list",filteredList)
+
+
 
     const colDef = [
         { field: "firstName", width: 190 },
@@ -28,7 +35,10 @@ export default function Datatable() {
         { field: "zipCode", width: 130 }
     ];
 
-    const searchList = (e) => {
+   
+
+    const searchList = (e) => {                                            //verbe pour fonction
+        
         const searchTerm = e.target.value.toLowerCase();
         const filtered = employeeList.filter(employee =>
             Object.values(employee).some(value =>
@@ -36,9 +46,19 @@ export default function Datatable() {
             )
         );
         setFilteredList(filtered);
-    };
+        
+    };  
 
-    const rowData = filteredList.length > 0 ? filteredList : employeeList;
+    useEffect(() => {
+        setFilteredList(employeeList);
+    },[employeeList]);
+ 
+    
+    const rowData = filteredList; 
+
+    console.log("Rowdata", rowData)
+
+    //useEffect []
 
     return (
         <div className="DTbody">
@@ -54,8 +74,8 @@ export default function Datatable() {
                 {usingMock && <span>Using mock data!</span>}
                 <p>Search <input type='text' onChange={searchList}></input> </p>
             </div>
-            <div className='datatable ag-theme-quartz' style={{ height: 500, width: '100%' }}>
-                <AgGridReact rowData={rowData} columnDefs={colDef} />
+            <div className='datatable ag-theme-quartz' style={{ height: 550, width: '100%' }}>
+                <AgGridReact rowData={rowData} columnDefs={colDef} pagination={true} paginationPageSizeSelector={[2,10,25,50,100]}/>
             </div>
             <Link className="homelink" to="/">Home</Link>
         </div>
