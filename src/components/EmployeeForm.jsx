@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { States } from "../utils/States";
 import { addUser } from '../redux/UserListSlice';
 import { validName, isValidDob, isValidStartDate, isValidStreet, isUsZipCode } from '../utils/InputValidation';
-import Modal from './Modal';
+import Modal from './ModalTest';
 
 export default function EmployeeForm() {
 
