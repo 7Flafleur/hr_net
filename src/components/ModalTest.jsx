@@ -1,7 +1,7 @@
 import Modal from '7pingolu-modal-package-test';
 
 const ModalTest = (props) => {
-    return <Modal />
+    return <Modal isOpen={props.isOpen} />
 }
 
 export default ModalTest;
