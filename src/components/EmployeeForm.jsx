@@ -107,7 +107,7 @@ export default function EmployeeForm() {
     console.log("isopen",isModalOpen)
     return (
         <div className="employeeform">
-            {isModalOpen && <Modal isOpen={true} onClose={closeModal} textContent={textContent} />}
+            {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} textContent={textContent} />}
             <form className='outer form' onSubmit={handleSubmit}>
                 <label>First name:
                     <input
