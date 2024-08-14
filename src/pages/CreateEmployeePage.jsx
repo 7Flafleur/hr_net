@@ -8,10 +8,10 @@ export default function CreateEmployeePage() {
 
     return (
         <div className="CEbody">
-            <h1>HRNet</h1>
-            <div className="links">
-                <Link style={{display: 'inline',width:'12rem',margin:'2rem'}} to="/employee-list1">View Current Employees </Link>
-                {/* <Link style={{display: 'inline',width:'12rem',margin:'2rem'}} to="/employee-list2">View Current Employees </Link> */}
+            <h1 className="titre">HRNet</h1>
+            <div className="linkdiv">
+                <Link className="Listlink" to="/employee-list1">View Current Employees </Link>
+                
             </div>
             <h2> Create  Employee</h2>
             <EmployeeForm />

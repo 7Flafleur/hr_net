@@ -63,7 +63,7 @@ export default function Datatable() {
     return (
         <div className="DTbody">
             <div className="ontopoftable">
-                <p>show
+                <p>Show
                     <select className='selectshow'>
                         <option value="10">10</option>
                         <option value="25">25</option>
