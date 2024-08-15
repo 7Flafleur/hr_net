@@ -10,8 +10,8 @@ export default function Datatable() {
   
     const users = useSelector(state => state.userList.users);
 
-    console.log("datatable userlist", users);
-    console.log("Mock users ", mockUsers);
+    // console.log("datatable userlist", users);
+    // console.log("Mock users ", mockUsers);
 
     const employeeList = users.length !== 0 ? users : mockUsers;    //useeffect  pour initialiser données
 
@@ -19,7 +19,7 @@ export default function Datatable() {
 
   const [filteredList, setFilteredList] = useState([]);
 
-  console.log("default filtered list",filteredList)
+//   console.log("default filtered list",filteredList)
 
 
 
@@ -56,7 +56,7 @@ export default function Datatable() {
     
     const rowData = filteredList; 
 
-    console.log("Rowdata", rowData)
+    ////console.log("Rowdata", rowData)
 
     //useEffect []
 
@@ -71,7 +71,7 @@ export default function Datatable() {
                         <option value="100">100</option>
                     </select> entries
                 </p>
-                {usingMock && <span>Using mock data!</span>}
+                {usingMock && <span className='mockdata'>Using mock data!</span>}
                 <p>Search <input type='text' onChange={searchList}></input> </p>
             </div>
             <div className='datatable ag-theme-quartz' style={{ height: 550, width: '100%' }}>

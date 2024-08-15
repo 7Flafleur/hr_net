@@ -104,7 +104,7 @@ export default function EmployeeForm() {
         setErrors({});
 
     };
-    console.log("isopen",isModalOpen)
+    //console.log("isopen",isModalOpen)
     return (
         <div className="employeeform">
             {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} textContent={textContent} />}
