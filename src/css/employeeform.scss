@@ -2,6 +2,7 @@
     // border: solid lightblue 1px;
     display: flex;
     flex-direction: column;
+    
 }
 
 form{
@@ -30,4 +31,8 @@ label{
     justify-content: space-between;
     align-items: center;
     gap: 5rem;
+}
+
+h1{
+    padding-top: 2rem;
 }

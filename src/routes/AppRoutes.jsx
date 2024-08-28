@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateEmployeePage from '../pages/CreateEmployeePage';
 import EmployeeList1 from '../pages/EmployeeList1';
-import Modal from '../components/Modal';
+
 // import EmployeeList2 from '../pages/EmployeeList2';
 
 

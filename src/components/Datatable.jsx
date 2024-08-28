@@ -71,7 +71,7 @@ export default function Datatable() {
                         <option value="100">100</option>
                     </select> entries
                 </p>
-                {usingMock && <span>Using mock data!</span>}
+                {usingMock && <span className='usemock'>Using mock data!</span>}
                 <p>Search <input type='text' onChange={searchList}></input> </p>
             </div>
             <div className='datatable ag-theme-quartz' style={{ height: 550, width: '100%' }}>

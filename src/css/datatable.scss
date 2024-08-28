@@ -1,5 +1,13 @@
+
+.datatable{
+    //  border: solid blue 1px;
+    width: 90%;
+
+
+}
+
 .DTbody{
-    border: solid yellow 1px;
+    // border: solid yellow 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,23 +17,36 @@
 
     margin:auto;
     overflow-y: hidden;
+
 }
 
-.datatable{
-    //  border: solid blue 1px;
-    width: 90%;
+.homelink{
+    padding-top: 2rem;
+    padding-right: 1rem;
+    color: rgb(24, 110, 207);
+    font-size: larger;
+    font-weight: bold;
     
-    
+
 }
+
 
 .ontopoftable{
     // border:solid red 1px;
     display: flex;
     justify-content: space-between;
-    
     width: 100%;
 }
 
 .selectshow{
     margin:0.4rem;
+}
+
+.usemock{
+
+    font-size: large;
+    font-weight: bold;
+    color: orange;
+    padding-left: 4rem;
+
 }

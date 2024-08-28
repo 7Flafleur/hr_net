@@ -33,7 +33,17 @@ code {
   align-items: center;
   height: 100vh;
   z-index: 2;
+  padding-bottom: 3rem;
   
+}
+
+.listlink{
+  display: 'inline';
+  width:'12rem';
+  margin:'2rem';
+  color: rgb(24, 110, 207);
+  font-size: larger;
+  font-weight: bold;
 }
 
 #root{
