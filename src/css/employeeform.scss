@@ -2,7 +2,7 @@
     // border: solid lightblue 1px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 form{
@@ -35,4 +35,10 @@ label{
 
 h1{
     padding-top: 2rem;
+}
+
+.example{
+    color: gray;
+    font-size: smaller;
+    margin-left: .5 rem;
 }

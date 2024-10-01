@@ -187,12 +187,13 @@ export default function EmployeeForm() {
                     </select>
                     {errors.state && <div className="invalid-feedback">{errors.state}</div>}
                 </label>
-                <label>Zip Code:
+                <label>Zip Code <span className='example'> [ex: '12345' or '12345-1234'] :</span>
                     <input
                         type="text"
                         name="zipCode"
                         value={formData.zipCode}
                         onChange={handleChange}
+                        // className="form-control"
                         className={`form-control ${errors.zipCode ? 'is-invalid' : ''}`}
                     />
                     {errors.zipCode && <div className="invalid-feedback">{errors.zipCode}</div>}
