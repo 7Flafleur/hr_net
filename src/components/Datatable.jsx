@@ -37,7 +37,7 @@ export default function Datatable() {
 
 
 
-    const searchList = (e) => {                                            //verbe pour fonction
+    const searchList = (e) => {
 
         const searchTerm = e.target.value.toLowerCase();
         const filtered = employeeList.filter(employee =>
@@ -65,7 +65,7 @@ export default function Datatable() {
             <div className="ontopoftable">
 
                 {usingMock && <span className='usemock'>Using mock data!</span>}
-                <p>Search <input type='text' onChange={searchList}></input> </p>
+                <p className='searchdiv'><input type='text' placeholder='Search' onChange={searchList}></input> </p>
             </div>
             <div className='datatable ag-theme-quartz' style={{ height: 550, width: '100%' }}>
                 <AgGridReact rowData={rowData} columnDefs={colDef} pagination={true} paginationPageSizeSelector={[2,10,25,50,100]}/>

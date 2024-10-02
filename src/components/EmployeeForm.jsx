@@ -47,7 +47,7 @@ export default function EmployeeForm() {
         }
 
         if (!isValidDob(formData.dob)) {
-            tempErrors.dob = 'Must be at least 18 years old';
+            tempErrors.dob = 'Must be at least 18 years old and not from the future ;)';
             isValid = false;
         }
 
