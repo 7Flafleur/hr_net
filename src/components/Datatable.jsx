@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useState,useEffect } from 'react';
 
 export default function Datatable() {
-  
+
     const users = useSelector(state => state.userList.users);
 
     console.log("datatable userlist", users);
@@ -35,10 +35,10 @@ export default function Datatable() {
         { field: "zipCode", width: 130 }
     ];
 
-   
+
 
     const searchList = (e) => {                                            //verbe pour fonction
-        
+
         const searchTerm = e.target.value.toLowerCase();
         const filtered = employeeList.filter(employee =>
             Object.values(employee).some(value =>
@@ -46,15 +46,15 @@ export default function Datatable() {
             )
         );
         setFilteredList(filtered);
-        
-    };  
+
+    };
 
     useEffect(() => {
         setFilteredList(employeeList);
     },[employeeList]);
- 
-    
-    const rowData = filteredList; 
+
+
+    const rowData = filteredList;
 
     console.log("Rowdata", rowData)
 
@@ -63,14 +63,7 @@ export default function Datatable() {
     return (
         <div className="DTbody">
             <div className="ontopoftable">
-                <p>show
-                    <select className='selectshow'>
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select> entries
-                </p>
+
                 {usingMock && <span className='usemock'>Using mock data!</span>}
                 <p>Search <input type='text' onChange={searchList}></input> </p>
             </div>
